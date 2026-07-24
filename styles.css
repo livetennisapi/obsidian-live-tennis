@@ -1,0 +1,66 @@
+.live-tennis-block {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+	padding: var(--size-4-2) var(--size-4-3);
+}
+
+.live-tennis-match {
+	padding: var(--size-4-1) 0;
+}
+
+.live-tennis-match + .live-tennis-match {
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.live-tennis-top {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--size-4-2);
+}
+
+.live-tennis-players {
+	font-weight: var(--font-semibold);
+}
+
+.live-tennis-vs {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+	font-weight: var(--font-normal);
+}
+
+.live-tennis-serving {
+	color: var(--color-green);
+	font-size: 0.6em;
+	margin: 0 0.3em;
+	vertical-align: middle;
+}
+
+.live-tennis-score {
+	color: var(--text-normal);
+	font-variant-numeric: tabular-nums;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.live-tennis-sub {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+}
+
+.live-tennis-empty {
+	color: var(--text-muted);
+}
+
+.live-tennis-error {
+	color: var(--text-error);
+}
+
+.live-tennis-refresh {
+	margin-top: var(--size-4-2);
+}
+
+.live-tennis-suggestion-detail {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+}

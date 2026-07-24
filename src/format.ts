@@ -146,7 +146,10 @@ export function playerProfileLine(player: Player): string {
 	if (player.is_doubles_team) {
 		details.push('doubles team');
 	}
-	const country = player.country ? ` (${player.country})` : '';
+	// The API reports country codes in lowercase ("esp"); display uppercase.
+	const country = player.country
+		? ` (${player.country.toUpperCase()})`
+		: '';
 	const suffix = details.length > 0 ? ` — ${details.join(', ')}` : '';
 	return `**${player.name}**${country}${suffix}`;
 }

@@ -1,10 +1,10 @@
 {
 	"id": "live-tennis",
 	"name": "Live Tennis",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "1.5.0",
 	"description": "Embed live tennis scores in notes and freeze match snapshots or player profiles into permanent markdown, powered by the Live Tennis API.",
-	"author": "Ben",
-	"authorUrl": "https://github.com/bensynapse",
+	"author": "Live Tennis API <hello@livetennisapi.com>",
+	"authorUrl": "https://livetennisapi.com",
 	"isDesktopOnly": false
 }

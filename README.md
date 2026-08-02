@@ -26,7 +26,7 @@ One `option: value` per line; `#` starts a comment. All options are optional —
 
 | Option | Values | Default | Notes |
 | --- | --- | --- | --- |
-| `status` | `live`, `upcoming`, `completed` | `live` | Match lifecycle to list. |
+| `status` | `live`, `upcoming`, `completed` | `live` | Match lifecycle to list. `live` and `upcoming` work on the free tier; `completed` needs the BASIC tier ($9.99/mo) or any History plan. |
 | `tour` | `atp`, `wta`, `challenger`, `itf`, `juniors` | all | Each value covers its singles and doubles draws. |
 | `limit` | 1–20 | 5 | Maximum matches shown. |
 | `match` | a match id | — | Show one specific match; overrides the other options. |
@@ -56,7 +56,7 @@ Example snapshot output:
 - **Remote service.** This plugin talks to the Live Tennis API at `https://api.livetennisapi.com` — and to no other host. That is where the scores come from; the plugin has no offline data source.
 - **When requests happen.** Rendering a `tennis` code block, pressing its Refresh button, and running either insert command each make one or more HTTPS requests. Nothing polls in the background and nothing runs at startup.
 - **What is sent.** Only your API key (as a request header) and the query parameters (status, tour, limit, match id, or a player name you typed). No vault content, note text, or telemetry is ever transmitted.
-- **Account required.** The API requires an account. The free tier is self-serve with no payment card, at 1000 requests per day: <https://livetennisapi.com/subscribe/free>. Paid tiers (BASIC/PRO/ULTRA) exist and unlock endpoints this plugin does not use (historical results, market prices, model analysis) — the plugin works fully on the free tier.
+- **Account required.** The API requires an account. The free tier is self-serve with no payment card, at 1000 requests per day: <https://livetennisapi.com/subscribe/free>. Live and upcoming matches, single-match lookups (including completed ones), and player profiles all work on the free tier. Listing completed matches (`status: completed`) needs the BASIC tier ($9.99/mo) or any History plan — on a free key the block shows an upgrade note instead. Higher tiers (PRO/ULTRA) unlock endpoints this plugin does not use (market prices, model analysis).
 - **Storage.** The API key is stored in plain text in the plugin's `data.json` inside your vault, like most Obsidian plugin settings. Do not commit it to a public vault repository.
 
 ## Development

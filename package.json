@@ -1,6 +1,6 @@
 {
 	"name": "live-tennis",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Obsidian community plugin that embeds live tennis scores in notes and freezes match snapshots into permanent markdown, powered by the Live Tennis API.",
 	"main": "main.js",
 	"type": "module",
@@ -11,6 +11,7 @@
 		"lint": "eslint ."
 	},
 	"keywords": [],
+	"author": "Live Tennis API <hello@livetennisapi.com>",
 	"license": "MIT",
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",

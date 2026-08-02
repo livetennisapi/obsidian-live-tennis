@@ -85,7 +85,7 @@ export class LiveTennisClient {
 		}
 		if (response.status === 403) {
 			throw new Error(
-				'This request needs a higher Live Tennis API tier (403).',
+				'Completed-match listings need the BASIC tier ($9.99/mo) or any History plan — upgrade at https://livetennisapi.com/subscribe/upgrade',
 			);
 		}
 		if (response.status === 404) {

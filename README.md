@@ -76,6 +76,10 @@ Source lives in `src/`; `main.js` is generated and not committed.
 2. Push the tag. The tag must equal the `manifest.json` version exactly — **no `v` prefix** (`.npmrc` sets `tag-version-prefix=""`).
 3. The release workflow builds the plugin and creates a **draft** GitHub release (`gh release create --draft`) with `main.js`, `manifest.json` and `styles.css` attached. **The draft must be published manually** on GitHub — Obsidian's community review only sees published releases.
 
+## Affiliate program
+
+Know developers who need tennis data? The [affiliate program](https://affiliates.livetennisapi.com/program) pays 51% recurring commission for the life of every referred subscription — 30-day cookie, and the people you refer get 10% off.
+
 ## License
 
 [MIT](LICENSE)

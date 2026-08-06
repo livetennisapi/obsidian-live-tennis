@@ -17,7 +17,7 @@ export const DEFAULT_SETTINGS: LiveTennisSettings = {
 function apiKeyDescription(): DocumentFragment {
 	return createFragment((fragment) => {
 		fragment.appendText(
-			'Key for the Live Tennis API. A free tier (no card required, 1000 requests per day) is available: ',
+			'Key for the Live Tennis API. A free tier (no card required, 100 requests per day) is available: ',
 		);
 		fragment.createEl('a', {
 			text: 'Get a free key',

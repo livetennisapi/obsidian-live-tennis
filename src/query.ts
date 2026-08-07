@@ -21,7 +21,7 @@ export function defaultQuery(): TennisQuery {
 	return { status: 'live', limit: DEFAULT_LIMIT };
 }
 
-function stripQuotes(value: string): string {
+export function stripQuotes(value: string): string {
 	if (
 		value.length >= 2 &&
 		((value.startsWith('"') && value.endsWith('"')) ||

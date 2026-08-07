@@ -57,7 +57,7 @@ function renderMatchRow(root: HTMLElement, match: Match): void {
 	row.createDiv({ cls: 'live-tennis-sub', text: statusLine(match) });
 }
 
-function renderRefresh(root: HTMLElement, onRefresh: () => void): void {
+export function renderRefresh(root: HTMLElement, onRefresh: () => void): void {
 	const button = root.createEl('button', {
 		cls: 'live-tennis-refresh',
 		text: 'Refresh',
@@ -65,11 +65,14 @@ function renderRefresh(root: HTMLElement, onRefresh: () => void): void {
 	button.addEventListener('click', onRefresh);
 }
 
-export function renderLoading(el: HTMLElement): void {
+export function renderLoading(
+	el: HTMLElement,
+	text = 'Loading matches…',
+): void {
 	el.empty();
 	el.createDiv({ cls: 'live-tennis-block' }).createDiv({
 		cls: 'live-tennis-empty',
-		text: 'Loading matches…',
+		text,
 	});
 }
 

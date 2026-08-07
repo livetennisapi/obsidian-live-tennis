@@ -1,6 +1,7 @@
 import { Editor, Notice, Plugin } from 'obsidian';
-import { LiveTennisClient } from './api';
+import { AbuseThrottledError, LiveTennisClient } from './api';
 import { snapshotTable } from './format';
+import { H2hQuery, parseH2hQuery, renderH2h } from './h2h';
 import { PlayerSearchModal } from './player-modal';
 import {
 	blockQueryAt,
@@ -20,6 +21,18 @@ function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error);
 }
 
+/**
+ * Refresh callback for an error render — except when the API has blocked the
+ * key (abuse_throttled): then there is no Refresh button, because the client
+ * refuses to send anything before the block lifts anyway.
+ */
+function refreshUnless(
+	error: unknown,
+	refresh: () => void,
+): (() => void) | undefined {
+	return error instanceof AbuseThrottledError ? undefined : refresh;
+}
+
 export default class LiveTennisPlugin extends Plugin {
 	settings!: LiveTennisSettings;
 	client!: LiveTennisClient;
@@ -32,6 +45,10 @@ export default class LiveTennisPlugin extends Plugin {
 
 		this.registerMarkdownCodeBlockProcessor('tennis', (source, el) =>
 			this.renderBlock(source, el),
+		);
+
+		this.registerMarkdownCodeBlockProcessor('h2h', (source, el) =>
+			this.renderH2hBlock(source, el),
 		);
 
 		this.addCommand({
@@ -70,7 +87,31 @@ export default class LiveTennisPlugin extends Plugin {
 			const matches = await resolveQuery(this.client, query);
 			renderMatches(el, matches, query, refresh);
 		} catch (error) {
-			renderError(el, errorMessage(error), refresh);
+			renderError(el, errorMessage(error), refreshUnless(error, refresh));
+		}
+	}
+
+	/** Renders a ```h2h block: parse, fetch the record once, draw; refreshable. */
+	private async renderH2hBlock(
+		source: string,
+		el: HTMLElement,
+	): Promise<void> {
+		let query: H2hQuery;
+		try {
+			query = parseH2hQuery(source);
+		} catch (error) {
+			renderError(el, errorMessage(error));
+			return;
+		}
+		renderLoading(el, 'Loading head-to-head…');
+		const refresh = () => {
+			void this.renderH2hBlock(source, el);
+		};
+		try {
+			const h2h = await this.client.getHeadToHead(query.p1, query.p2);
+			renderH2h(el, h2h, query, refresh);
+		} catch (error) {
+			renderError(el, errorMessage(error), refreshUnless(error, refresh));
 		}
 	}
 

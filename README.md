@@ -14,7 +14,7 @@ Three ways to use it:
 
 ## Install
 
-While the community-plugin listing is under review: download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/livetennisapi/obsidian-live-tennis/releases/latest) into `<vault>/.obsidian/plugins/live-tennis/`, then enable **Live Tennis** under **Settings → Community plugins**.
+The plugin is not yet in the Obsidian community catalog (community submission pending, as of August 2026). Until it lands there, install manually: download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/livetennisapi/obsidian-live-tennis/releases/latest) into `<vault>/.obsidian/plugins/live-tennis/`, then enable **Live Tennis** under **Settings → Community plugins**.
 
 ## Setup
 

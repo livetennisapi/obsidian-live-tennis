@@ -1,7 +1,7 @@
 {
 	"id": "live-tennis",
 	"name": "Live Tennis",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"minAppVersion": "1.5.0",
 	"description": "Embed live tennis scores and head-to-head records in notes, and freeze match snapshots or player profiles into permanent markdown, powered by the Live Tennis API.",
 	"author": "Live Tennis API <hello@livetennisapi.com>",

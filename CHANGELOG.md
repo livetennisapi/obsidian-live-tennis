@@ -4,6 +4,15 @@ All notable changes to this plugin are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-08-16
+
+### Changed
+
+- Dependency bumps folded in from Dependabot (`fast-uri` 3.1.5, `js-yaml`
+  4.3.1); no functional changes.
+- README: honest install wording — the plugin is not yet in the Obsidian
+  community catalog; manual install documented until the submission lands.
+
 ## [1.1.0] - 2026-08-07
 
 ### Added

@@ -11,7 +11,11 @@
 		"lint": "eslint ."
 	},
 	"keywords": [],
-	"author": "Live Tennis API <hello@livetennisapi.com>",
+	"author": {
+		"name": "Synapse Research Ltd",
+		"email": "hello@livetennisapi.com",
+		"url": "https://synapsereality.io"
+	},
 	"license": "MIT",
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",

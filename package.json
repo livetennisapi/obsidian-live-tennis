@@ -30,6 +30,10 @@
 		"typescript-eslint": "^8.72.1"
 	},
 	"overrides": {
-		"moment": "2.31.0"
+		"moment": "2.31.0",
+		"minimatch@>=7.0.0 <11.0.1": "^11.0.1"
+	},
+	"//": {
+		"overrides.minimatch": "GHSA-g3hv-75wg-m249, ReDoS in minimatch 7.0.0 to 11.0.0, fixed in 11.0.1. Pulled at 8.0.7, 9.0.9 and 10.2.6 through eslint-plugin-obsidianmd (eslint-plugin-json-schema-validator, eslint-plugin-n via @microsoft/eslint-plugin-sdl) and by eslint, @eslint/config-array and @typescript-eslint/typescript-estree. Drop the override once npm ls minimatch shows no version in that range without it."
 	}
 }
